@@ -14,7 +14,17 @@ ${SELECTOR_css_button}  button
 ${TIMEOUT}  5s
 
 *** Keywords ***
-Go to Signin Page 
+Login Successfully with Valid Credentials
+    [Arguments]  ${user_credentials}
+    Navigate Login Page
+    Login with Valid Credentials    ${user_credentials}
+    Wait for Admin Dashboard to Load  ${user_credentials}
+
+Navigate Login Page
+    Go to Login Page 
+    Wait for Login Page to Load
+
+Go to Login Page 
     Go to  ${SIGNIN_URL}
 
 Wait for Login Page to Load
@@ -41,7 +51,8 @@ Wait for Failed Login Error Message
     Wait Until Page Contains  ${user_credentials.expected_message}  
 
 Logout 
-    Click Logout Button 
+    Click Logout Element 
+    Wait for Login Page to Load
 
 Click Login Button 
     Click Button  css=${SELECTOR_css_button}
