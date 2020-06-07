@@ -46,6 +46,6 @@ Logout
 Click Login Button 
     Click Button  css=${SELECTOR_css_button}
 
-Click Logout Button 
-    Click Button  id=${SELECTOR_id_logout}
+Click Logout Element 
+    Click Element  id=${SELECTOR_id_logout}
 
